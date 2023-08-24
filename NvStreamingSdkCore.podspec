@@ -30,7 +30,7 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '11.0'
 
-  s.source_files = 'NvStreamingSdkCore.framework/**'
+  s.source_files = 'NvStreamingSdkCore.framework/**/*'
   
   # s.resource_bundles = {
   #   'NvStreamingSdkCore' => ['NvStreamingSdkCore/Assets/*.png']
