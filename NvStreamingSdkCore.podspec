@@ -32,7 +32,7 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'NvStreamingSdkCore.framework/Headers/*.h'
   s.public_header_files = "NvStreamingSdkCore.framework/Headers/*.h"
-  s.ios.vendored_frameworks = "NvStreamingSdkCore.framework"
+  s.ios.vendored_libraries = "NvStreamingSdkCore.framework"
   s.requires_arc       = true
   
   # s.resource_bundles = {
