@@ -23,7 +23,7 @@ TODO: Add long description of the pod here.
 
   s.homepage         = 'https://github.com/zhaoyan/NvStreamingSdkCore'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
+  s.license          = { :type => 'MIT', :file => 'README.md' }
   s.author           = { 'zhaoyan' => 'zhaoyan@xiaobing.ai' }
   s.source           = { :git => 'https://github.com/zhaoyan/NvStreamingSdkCore.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
@@ -33,7 +33,7 @@ TODO: Add long description of the pod here.
   s.source_files = 'NvStreamingSdkCore.framework/Headers/*.h'
   s.public_header_files = "NvStreamingSdkCore.framework/Headers/*.h"
   s.ios.vendored_frameworks = "NvStreamingSdkCore.framework"
-  s.requires_arc = true
+  s.requires_arc       = true
   
   # s.resource_bundles = {
   #   'NvStreamingSdkCore' => ['NvStreamingSdkCore/Assets/*.png']
