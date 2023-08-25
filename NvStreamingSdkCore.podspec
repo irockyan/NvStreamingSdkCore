@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'NvStreamingSdkCore'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of NvStreamingSdkCore.'
+  s.version          = '0.1.1'
+  s.summary          = '美摄sdk'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -24,13 +24,17 @@ TODO: Add long description of the pod here.
   s.homepage         = 'https://github.com/zhaoyan/NvStreamingSdkCore'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'zhaoyan' => 'zhaoyan@xiaoice.com' }
+  s.author           = { 'zhaoyan' => 'zhaoyan@xiaobing.ai' }
   s.source           = { :git => 'https://github.com/zhaoyan/NvStreamingSdkCore.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '11.0'
 
-  s.source_files = 'NvStreamingSdkCore.framework/**/*'
+  s.source_files = 'NvStreamingSdkCore.framework/Headers/*.h'
+  s.public_header_files = "NvStreamingSdkCore.framework/Headers/*.h"
+  s.ios.vendored_frameworks = "NvStreamingSdkCore.framework"
+  s.requires_arc = true
+  s.xcconfig = {"ENABLE_BITCODE" => "NO"}
   
   # s.resource_bundles = {
   #   'NvStreamingSdkCore' => ['NvStreamingSdkCore/Assets/*.png']
