@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'NvStreamingSdkCore'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = '美摄sdk'
 
 # This description is used to generate tags and improve search results.
@@ -34,7 +34,6 @@ TODO: Add long description of the pod here.
   s.public_header_files = "NvStreamingSdkCore.framework/Headers/*.h"
   s.ios.vendored_frameworks = "NvStreamingSdkCore.framework"
   s.requires_arc = true
-  s.xcconfig = {"ENABLE_BITCODE" => "NO"}
   
   # s.resource_bundles = {
   #   'NvStreamingSdkCore' => ['NvStreamingSdkCore/Assets/*.png']
