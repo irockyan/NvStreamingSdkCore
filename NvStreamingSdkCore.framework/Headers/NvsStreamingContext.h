@@ -452,6 +452,9 @@ typedef enum{
 
 #define NVS_COMPILE_CREATION_TIME                    @"creation time" //!< \if ENGLISH Set creation time for this file. Foramt:"YYYY-MM-DDTHH:MM:SS",eg:2010-12-24T12:00:00(use location time) \else 设置媒体文件的创建时间,格式:"YYYY-MM-DDTHH:MM:SS"例如：2010-12-24T12:00:00(使用LocationTime)\endif
 #define NVS_COMPILE_METADATADESCRIPTION              @"metadata description"         //!< \if ENGLISH Corresponding AVMetadataCommonKeyDescription, sets the metadata description of the video files \else 对应AVMetadataCommonKeyDescription，设置视频文件的metadata描述，不支持中文 \endif
+#define NVS_COMPILE_AUDIO_SAMPLE_RATE                @"audio sample rate"          //!< \if ENGLISH Set the audio sampling rate, currently supporting a minimum of 16K and a maximum of 128K \else 设置音频采样率，目前最小支持16K，最大支持128K \endif
+#define NVS_COMPILE_AUDIO_CHANNELS_MODE              @"audio channels mode"          //!< \if ENGLISH Set up audio channels, currently supporting "mixtomono", with default and timeline settings consistent \else 设置音频通道 目前支持"mixtomono", 默认和时间线设置一致 \endif
+#define NVS_COMPILE_FILE_META_DATA                   @"file metadata"          //!< \if ENGLISH Set meta data, for example:"creation-time=xxxxx;location=17.641347+160.931648;" \else 设置meta-data，例如:"creation-time=xxxxx;location=17.641347+160.931648;" \endif
 //!@}
 
 
@@ -3562,6 +3565,16 @@ NVS_EXPORT @interface NvsStreamingContext : NSObject
  *  \endif
 */
 + (void)setMaxReaderCount:(int)count;
+
+/*! \if ENGLISH
+ *  \brief set max soft file reader count.
+ *  \param max count the soft file reader
+ *  \else
+ *  \brief 设置软件的 file reader 最大个数。
+ *  \param soft file reader 最大个数
+ *  \endif
+*/
++ (void)setMaxSoftReaderCount:(int)count;
 
 /*! \if ENGLISH
  *  \brief set max icon reader count.

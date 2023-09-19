@@ -15,9 +15,6 @@
 #import <UIKit/UIImage.h>
 #import "NvsCommonDef.h"
 
-
-/*! \cond */
-
 /*! \if ENGLISH
  *  \brief Type of convertor error
  *  \else
@@ -58,8 +55,9 @@ typedef enum {
 #define NVS_MEDIA_CONVERTOR_COMPILE_GOP_SIZE                @"gopsize"                      //!< \if ENGLISH GOP SIZE for convert video. type:int \else 生成视频GOP SIZE。类型：整型 \endif
 #define NVS_MEDIA_CONVERTOR_COMPILE_BITRATE                 @"bitrate"                      //!< \if ENGLISH Bitrate for convert video in bps. type:int \else 生成视频码率，单位bps。类型：整型 \endif
 #define NVS_MEDIA_CONVERTOR_COMPILE_AUDIO_BITRATE           @"audio bitrate"                //!< \if ENGLISH Bitrate for convert audio in bps. type:int \else 生成音频码率，单位bps。类型：整型 \endif
+#define NVS_EDIA_CONVERTOR_VIDEO_ENCODEC_NAME               @"video encoder name"             //!< \if ENGLISH Assigned video encoding format, hevc(h.256) is supported, default is h.264\else 指定视频压缩格式，类型：string，目前支持hevc(h.265)，默认h.264\endif
+#define NVS_EDIA_CONVERTOR_AUDIO_ENCODEC_NAME               @"audio encoder name"             //!< \if ENGLISH Assigned audio encoding format, "amr-wb" and "mp3" are supported, default is "aac" \else 指定音频压缩格式，类型：string，目前支持“mp3”，"amr-wb"，默认"aac"\endif
 //!@}
-//!
 
 @protocol NvsMediaFileConvertorDelegate<NSObject>
 
@@ -78,6 +76,26 @@ NVS_EXPORT @interface NvsMediaFileConvertor : NSObject
 
 - (instancetype)init;
 
+/*! \if ENGLISH
+ *  \brief Start to convert file
+ *  \param srcFilePath source file
+ *  \param outputFilePath destination file
+ *  \param isReverse reverse convert file
+ *  \param from start time
+ *  \param to end time
+ *  \param options convert options
+ *  \return Task ID
+ *  \else
+ *  \brief 开始转码
+ *  \param srcFilePath 源文件
+ *  \param outputFilePath 目标文件
+ *  \param isReverse 是否倒放转码
+ *  \param from 转码的起点时间
+ *  \param to 转码的止点时间
+ *  \param options 转码参数集合
+ *  \return 转码任务ID
+ *  \endif
+ */
 - (int64_t)convertMeidaFile:(NSString *)srcFilePath
                    outputFile:(NSString *)outputFilePath
              isReverseConvert:(bool)isReverse
@@ -85,8 +103,15 @@ NVS_EXPORT @interface NvsMediaFileConvertor : NSObject
                    toPosition:(int64_t)to
                       options:(NSMutableDictionary *)options;
 
+/*! \if ENGLISH
+ *  \brief Cancel task
+ *  \param taskId Task Id
+ *  \else
+ *  \brief 取消转码任务
+ *  \param taskId 任务id
+ *  \endif
+ */
 - (void)cancelTask:(int64_t)taskId;
 
 @end
-/*! \endcond */
 

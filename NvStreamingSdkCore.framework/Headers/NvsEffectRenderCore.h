@@ -340,7 +340,7 @@ NVS_EXPORT @interface NvsEffectRenderCore : NSObject
 - (NvsEffectCoreError)renderEffects:(NSArray<NvsEffect *>*)effects
                          inputImage:(CVPixelBufferRef)inputImage
                         outputImage:(CVPixelBufferRef*)ouputImage
-                            options:(NSMutableDictionary *)options;
+                            options:(NSDictionary *)options;
 
 /*! \if ENGLISH
  *  \brief Rendering effects
@@ -361,7 +361,7 @@ NVS_EXPORT @interface NvsEffectRenderCore : NSObject
 */
 - (NvsEffectCoreError)renderEffects:(NSArray<NvsEffect *>*)effects
                          inputImage:(CVPixelBufferRef)inputImage
-                            options:(NSMutableDictionary *)options;
+                            options:(NSDictionary *)options;
 
 /*! \if ENGLISH
  *  \brief Rendering effects

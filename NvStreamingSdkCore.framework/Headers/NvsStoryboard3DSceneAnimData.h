@@ -14,6 +14,11 @@
 #pragma once
 #import "NvsArbitraryData.h"
 
+typedef enum {
+    NvsAnimUnfoundBehavior_Default = 0,     // Render as default
+    NvsAnimUnfoundBehavior_DontRender = 1   // Don't render anything at all
+} NvsAnimUnfoundBehavior;
+
 NVS_EXPORT @interface NvsAnimStateInfo : NSObject
 
 @property(strong, nonatomic) NSString *layerId;
@@ -28,5 +33,5 @@ NVS_EXPORT @interface NvsAnimStateInfo : NSObject
 NVS_EXPORT @interface NvsStoryboard3DSceneAnimData : NvsArbitraryData
 
 @property(strong, nonatomic) NSMutableArray <NvsAnimStateInfo *>*animStateInfos;
-
+@property(assign, nonatomic) NvsAnimUnfoundBehavior animUnfoundBehavior;    // Behavior should be taken if any animation specified is not found.
 @end

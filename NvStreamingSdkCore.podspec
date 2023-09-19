@@ -28,7 +28,7 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/zhaoyan/NvStreamingSdkCore.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '11.0'
+  s.ios.deployment_target = '12.0'
 
   s.source_files = 'NvStreamingSdkCore.framework/Headers/*.h'
   s.public_header_files = "NvStreamingSdkCore.framework/Headers/*.h"

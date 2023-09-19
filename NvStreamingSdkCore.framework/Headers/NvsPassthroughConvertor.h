@@ -33,6 +33,10 @@ typedef enum {
     NvsPassthroughConvertorErrorType_UnkownError = 65535            //!< \if ENGLISH task has unknown error \else 出现没有定义的错误 \endif
 } NvsPassthroughConvertorErrorType;
 
+#define NVS_PASSTHROUGH_OPTIMIZE_FOR_NETWORK_USE         @"optimize-for-network-use"       //!< \if ENGLISH Whether to prepose the index table, type: boolean \else 是否前置索引表，类型：bool，传true或者false \endif
+#define NVS_PASSTHROUGH_CREATION_TIME                    @"creation time" //!< \if ENGLISH Set creation time for this file. Foramt:"YYYY-MM-DDTHH:MM:SS",eg:2010-12-24T12:00:00(use location time) \else 设置媒体文件的创建时间,格式:"YYYY-MM-DDTHH:MM:SS"例如：2010-12-24T12:00:00(使用LocationTime)\endif
+#define NVS_PASSTHROUGH_METADATADESCRIPTION              @"metadata description"         //!< \if ENGLISH Corresponding AVMetadataCommonKeyDescription, sets the metadata description of the video files \else 对应AVMetadataCommonKeyDescription，设置视频文件的metadata描述，不支持中文 \endif
+
 @protocol NvsPassthroughConvertorDelegate<NSObject>
 
 - (void)didConvertorProgress:(int64_t)taskId progress:(float)progress;

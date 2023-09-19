@@ -16,7 +16,8 @@
 
 typedef enum {
     NvsFactorOperationType_None = 0,
-    NvsFactorOperationType_OneMinus = 1
+    NvsFactorOperationType_OneMinus = 1,
+    NvsFactorOperationType_Source = 2
 } NvsFactorOperationType;
 
 NVS_EXPORT @interface NvsMorphingInfo : NSObject

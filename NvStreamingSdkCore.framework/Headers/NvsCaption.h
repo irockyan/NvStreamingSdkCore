@@ -1415,4 +1415,105 @@ NVS_EXPORT @interface NvsCaption : NvsFx
 */
 - (NvsCaptionTextLayout *)getTextLayout;
 
+/*! @if ENGLISH
+ *  @brief Gets the number of complex caption layers.
+ *  @return the number of caption layers.
+ *  @else
+ *  @brief 获取复杂字幕层数。
+ *  @return 字幕层数。
+ *  @endif
+*/
+- (int)getComplexRenderLayerCount;
+
+/*! @if ENGLISH
+ *  @brief Determine if the current layer has outline
+ *  @param layerIndex layer index
+ *  @return outline state
+ *  @else
+ *  @brief 判断当前层是否有描边
+ *  @param layerIndex 字幕层数
+ *  @return 描边状态
+ *  @endif
+*/
+- (BOOL)hasOutlineLayerInComplexRender:(int)layerIndex;
+
+/*! @if ENGLISH
+ *  @brief Gets the outline color value for a layer of complex caption.
+ *  @param layerIndex layer index
+ *  @return outline color
+ *  @else
+ *  @brief 获取复杂字幕某层字幕描边颜色值。
+ *  @param layerIndex 字幕层数
+ *  @return 描边颜色值。
+ *  @endif
+*/
+- (NvsColor)getComplexRenderLayerOutlineColor:(int)layerIndex;
+
+/*! @if ENGLISH
+ *  @brief Set the outline color value for a layer of complex caption.
+ *  @param layerIndex layer index
+ *  @param color color
+ *  @return success status
+ *  @else
+ *  @brief 设置复杂字幕某层字幕描边颜色值。
+ *  @param layerIndex 字幕层数
+ *  @param color 颜色值
+ *  @return 设置成功与否。
+ *  @endif
+*/
+- (BOOL)setComplexRenderLayerOutlineColor:(int)layerIndex color:(NvsColor)color;
+
+/*! @if ENGLISH
+ *  @brief Gets the outline width of a layer of complex caption
+ *  @param layerIndex layer index
+ *  @return outline width
+ *  @else
+ *  @brief 获取复杂字幕某层字幕描边宽度。
+ *  @param layerIndex 字幕层数
+ *  @return 描边宽度。
+ *  @endif
+*/
+- (float)getComplexRenderLayerOutlineWidth:(int)layerIndex;
+
+/*! @if ENGLISH
+ *  @brief set the outline width of a layer of complex caption
+ *  @param layerIndex layer index
+ *  @param width outline width
+ *  @return success status
+ *  @else
+ *  @brief 设置复杂字幕某层字幕描边宽度。
+ *  @param layerIndex 字幕层数
+ *  @param width 描边宽度
+ *  @return 设置成功与否
+ *  @endif
+*/
+- (BOOL)setComplexRenderLayerOutlineWidth:(int)layerIndex width:(float)width;
+
+/*! @if ENGLISH
+ *  @brief Gets the opacity of a certain layer of complex caption.
+ *  @param layerIndex layer index
+ *  @return opacity
+ *  @else
+ *  @brief 获取复杂字幕某层字幕不透明度。
+ *  @param layerIndex 字幕层数
+ *  @return 不透明度。
+ *  @endif
+*/
+- (float)getComplexRenderLayerOpacity:(int)layerIndex;
+
+/*! @if ENGLISH
+ *  @brief set the opacity of a certain layer of complex caption.
+ *  @param layerIndex layer index
+ *  @param opacity opacity
+ *  @return success status
+ *  @else
+ *  @brief 设置复杂字幕某层字幕不透明度。
+ *  @param layerIndex 字幕层数
+ *  @param opacity 不透明度
+ *  @return 设置成功与否
+ *  @endif
+*/
+- (BOOL)setComplexRenderLayerOpacity:(int)layerIndex opacity:(float)opacity;
+
+
 @end
