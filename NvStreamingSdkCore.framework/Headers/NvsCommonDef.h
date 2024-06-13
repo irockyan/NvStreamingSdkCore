@@ -96,6 +96,22 @@ typedef enum
 } NvsVideoColorTransfer;
 
 /*! \if ENGLISH
+*   \brief HDR type
+*   \else
+*   \brief HDR 视频类型
+*   \endif
+*/
+typedef enum
+{
+    NvsVideoHDRType_None = 0,  //This is used by SDR video content.
+    NvsVideoHDRType_HDR10, //SMPTE ST 2084 transfer function. This is used by some HDR video content
+    NvsVideoHDRType_HLG, //ARIB STD-B67 hybrid-log-gamma transfer function. This is used by some HDR video content.
+    NvsVideoHDRType_HDR10Plus, //This is used by HDR10+ video content, has dynamic meta data.
+    NvsVideoHDRType_DolbyVision, //This is used by dolby vision hdr video content, has dynamic meta data.
+    NvsVideoHDRType_Vivid //This is used by vivid hdr video content, has dynamic meta data.
+} NvsVideoHDRType;
+
+/*! \if ENGLISH
 *   \brief The role of the clip in the theme
 *   \else
 *   \brief 片段在主题中的角色

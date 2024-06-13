@@ -372,7 +372,7 @@ typedef enum {
     NvsCreateTimelineType_UseMipmap = 4,                        //!< \if ENGLISH Use mipmap anti-aliasing  \else 使用mipmap抗锯齿 \endif
     NvsCreateTimelineType_VariantImageSize = 8,                 //!< \if ENGLISH Automatically adapt timeline resolution when add images  \else 加载图片时自动适配timeline分辨率 \endif
     NvsCreateTimelineType_DontAddDefaultVideoTransition = 16,   //!< \if ENGLISH Do not add a default video transition  \else 不添加默认视频转场 \endif
-    NvsCreateTImelineType_Orphan = 128                          //!< \if ENGLISH Orphan timeline flag, destroy the timeline after its parent timeline destroyed.  \else 孤儿时间线，销毁父亲时间线的同时销毁该时间线 \endif
+    NvsCreateTimelineType_Orphan = 128                          //!< \if ENGLISH Orphan timeline flag, destroy the timeline after its parent timeline destroyed.  \else 孤儿时间线，销毁父亲时间线的同时销毁该时间线 \endif
 } NvsCreateTimelineTypeFlag;
 
 /*! \anchor  NvsHDRCapabilityFlag */
@@ -456,6 +456,7 @@ typedef enum{
 #define NVS_COMPILE_AUDIO_SAMPLE_RATE                @"audio sample rate"          //!< \if ENGLISH Set the audio sampling rate, currently supporting a minimum of 16K and a maximum of 128K \else 设置音频采样率，目前最小支持16K，最大支持128K \endif
 #define NVS_COMPILE_AUDIO_CHANNELS_MODE              @"audio channels mode"          //!< \if ENGLISH Set up audio channels, currently supporting "mixtomono", with default and timeline settings consistent \else 设置音频通道 目前支持"mixtomono", 默认和时间线设置一致 \endif
 #define NVS_COMPILE_FILE_META_DATA                   @"file metadata"          //!< \if ENGLISH Set meta data, for example:"creation-time=xxxxx;location=17.641347+160.931648;" \else 设置meta-data，例如:"creation-time=xxxxx;location=17.641347+160.931648;" \endif
+#define NVS_COMPILE_GIF_STATS_MODE                   @"gif stats mode"          //!< \if ENGLISH Set the statistical mode for GIF export. Currently, it supports diff, single, and defaults to single mode. If set to diff mode, it is best to export GIF for no more than 10 seconds. In this mode, memory requirements are relatively high \else 设置GIF导出是的统计模式，目前支持diff，和single，默认为single模式，如果设置为diff模式，导出GIF的长度最好不要超过10秒钟，在这种模式下对内存要求比较大 \endif
 //!@}
 
 

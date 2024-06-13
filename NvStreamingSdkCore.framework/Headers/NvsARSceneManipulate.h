@@ -292,6 +292,17 @@ typedef NS_ENUM(NSInteger,NvsToBeCheckedFunctionType) {
 
 /*!
  *  \if ENGLISH
+ *  \brief Set disable detection smooth or not.
+ *  \param disable disable or not.
+ *  \else
+ *  \brief 禁用平滑检测
+ *  \param disable 禁用。
+ *  \endif
+*/
+- (void)setDisableDetectionSmooth:(BOOL)disable;
+
+/*!
+ *  \if ENGLISH
  *  \brief Sets sound volume in AR.
  *  \param volume volume value, value range [0, 1].
  *  \else

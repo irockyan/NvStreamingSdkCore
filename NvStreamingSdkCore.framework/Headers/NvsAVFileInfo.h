@@ -165,6 +165,20 @@ NVS_EXPORT @interface NvsAVFileInfo : NSObject
 - (NvsVideoColorTransfer)getVideoStreamColorTranfer:(unsigned int)videoStreamIndex;
 
 /*! \if ENGLISH
+ *  \brief Gets the video HDR type of the current video stream through the video stream index.
+ *  \param videoStreamIndex vedio stream index
+ *  \return Returns the video HDR type of the current video stream.
+ *  \note : To get this information, call NvsStreamingContext.getAVFileInfo () must use AV_ FILEINFO_ EXTRA_ Info flag
+ *  \else
+ *  \brief 通过视频流索引获取当前视频流的HDR类型。
+ *  \param videoStreamIndex 视频流索引
+ *  \return 返回当前视频流的HDR类型
+ *  \注： 要正确的获取这个信息，在调用NvsStreamingContext.getAVFileInfo()必须使用AV_FILEINFO_EXTRA_INFO标志。
+ *  \endif
+*/
+- (NvsVideoHDRType)getVideoStreamHDRType:(unsigned int)videoStreamIndex;
+
+/*! \if ENGLISH
  *  \brief Gets the audio stream duration through the audio stream index.
  *  \param audioStreamIndex Audio stream index
  *  \return Returns the duration of the current audio stream (in microseconds).

@@ -24,6 +24,8 @@
 @class NvsTimelineCaption;
 @class NvsTimelineAnimatedSticker;
 @class NvsTimelineVideoFx;
+@class NvsClip;
+@class NvsCaption;
 
 /*! \if ENGLISH
  *  \brief Watermark position
@@ -46,6 +48,22 @@ NVS_EXPORT @interface NvsPlaybackRateControlRegion : NSObject
     @property (nonatomic, assign) float audioGain;
 
 @end
+
+NVS_EXPORT @interface NvsCaptionBoundingVerticesInfo : NSObject
+
+@property (nonatomic, strong) NvsCaption* caption;
+@property (nonatomic, strong) NSArray<NSValue*>* values; // CGPoint
+
+@end
+
+NVS_EXPORT @interface NvsClipBoundingVerticesInfo : NSObject
+
+@property (nonatomic, strong) NvsClip* clip;
+@property (nonatomic, strong) NSArray<NSValue*>* values; // CGPoint
+
+@end
+
+
 
 /*! \if ENGLISH
  *  \brief Timeline is which the entity of editing the scene.
@@ -1298,6 +1316,30 @@ NVS_EXPORT @interface NvsTimeline : NvsObject
  *  \since 3.5.0
 */
 - (bool)applyThemeTemplate:(NSString *)templateId;
+
+/*! @if ENGLISH
+ *  @brief
+ *  @param
+ *  @return
+ *  @else
+ *  @brief 递归获取该时间线下所有字幕的外框顶点坐标（不包含复合字幕）
+ *  @param timelinePostion 当前时间线时间。
+ *  @return 返回的所有字幕外框顶点坐标。
+ *  @endif
+ */
+- (NSArray<NvsCaptionBoundingVerticesInfo*>*)getCaptionsBoundingVerticesRecursively:(NvsBoundingType)boundingType timelinePosition:(int64_t)timelinePosition;
+
+/*! @if ENGLISH
+ *  @brief
+ *  @param
+ *  @return
+ *  @else
+ *  @brief 递归获取该时间线下所有片段的外框顶点坐标
+ *  @param timelinePostion 当前时间线时间。
+ *  @return 返回的所有字幕外框顶点坐标。
+ *  @endif
+ */
+- (NSArray<NvsClipBoundingVerticesInfo*>*)getVideoClipBoundingVerticesRecursively:(int64_t)timelinePosition;
 
 @end
 

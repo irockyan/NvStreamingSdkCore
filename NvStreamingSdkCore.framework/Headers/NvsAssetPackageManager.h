@@ -852,6 +852,21 @@ NVS_EXPORT @interface NvsAssetPackageManager : NSObject
 */
 - (BOOL)hasAudioInAssetPackage:(NSString *)uuidString type:(NvsAssetPackageType)assetPackageType;
 
+/*! \if ENGLISH
+ *  \brief Whether the ARScene package has detection requirements
+ *  \param uuidString ARScene package uuid
+ *  \param assetPackageType Asset package type
+ *  \return Returns BOOL value, Whether it contains detection requirements
+ *  \else
+ *  \brief ARScene资源包是否有检测需求
+ *  \param uuidString ARScene资源包uuid
+ *  \param assetPackageType Asset package type
+ *  \return 返回BOOL值，是否含有检测需求
+ *  \endif
+ *  \since 3.10.0
+*/
+- (BOOL)hasDetectionInAssetPackage:(NSString *)uuidString type:(NvsAssetPackageType)assetPackageType;
+
 
 /*! \cond */
 - (NSString *)decodeFile:(NSString *)fileFile
