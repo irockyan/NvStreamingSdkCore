@@ -1110,7 +1110,7 @@ NVS_EXPORT @interface NvsStreamingContext : NSObject
  *  \param features human detection flag field. Please refer to [Flag of human detection](@ref NvsHumanDetectionFeatureFlag).
  *  \else
  *  \brief 初始化人体检测机制, 只初始化一次
- *  \param modelFilePath 人脸模型文件路径
+ *  \param modelFilePath 模型文件路径
  *  \param licenseFilePath 授权文件路径
  *  \param features 人体检测特征标志字段。请参见[人体检测特征标志](@ref NvsHumanDetectionFeatureFlag)
  *  \endif
@@ -1128,7 +1128,7 @@ NVS_EXPORT @interface NvsStreamingContext : NSObject
  *  \param features human detection flag field. Please refer to [Flag of human detection](@ref NvsHumanDetectionFeatureFlag).
  *  \else
  *  \brief 初始化人体检测扩展机制，必须先调用initHumanDetection
- *  \param modelFilePath 人脸模型文件路径
+ *  \param modelFilePath 模型文件路径
  *  \param licenseFilePath 授权文件路径
  *  \param features 人体检测特征标志字段。请参见[人体检测特征标志](@ref NvsHumanDetectionFeatureFlag)
  *  \endif

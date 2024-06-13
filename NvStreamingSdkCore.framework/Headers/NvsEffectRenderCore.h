@@ -42,6 +42,23 @@ typedef enum {
     NvsRenderFlags_InputTextureIsFlipHorizontally = 2
 } NvsRenderFlag;
 
+typedef struct
+{
+    int texWidth;
+    int texHeight;
+    int centerPointX;
+    int centerPointY;
+    NvsEffectRational imagePar;
+    NvsEffectRational proxyScale;
+} NvsEffectGPUTextureInfo;
+
+typedef struct
+{
+    int texId;
+    bool isUpSideDown;
+    NvsEffectGPUTextureInfo texInfo;
+} NvsEffectGPUTexture;
+
 /*! \anchor RENDER_PARAMETERS */
 /*!
  *  \if ENGLISH
@@ -392,6 +409,65 @@ NVS_EXPORT @interface NvsEffectRenderCore : NSObject
                        outputTexId:(int)outputTexId
                          timestamp:(int64_t)timestamp
                              flags:(NvsRenderFlag)flags;
+
+/*! \if ENGLISH
+ *  \brief Calculate the output size of effects
+ *  \param effect The effect object to be rendered
+ *  \param inputTextures input texture array
+ *  \param texArrayCount input texture array count
+ *  \param videoResolution Expected video resolution output
+ *  \param outputTex Output texture
+ *  \param timestamp Timestamp of current rendering
+ *  \param flags Temporarily set to 0
+ *  \return "NvsEffectCoreError_NoError" means success, while any other value means failure. Refer to the error code definition.
+ *  \else
+ *  \brief 计算变画幅特效输出大小
+ *  \param effect 要渲染的特效对象
+ *  \param inputTextureArray 输入图像组
+ *  \param texArrayCount 输入纹理的数组数量
+ *  \param videoResolution 期望输出的视频解析度
+ *  \param outputTex 输出纹理
+ *  \param timestamp 当前渲染的时间戳
+ *  \param flags 暂时为0
+ *  \return 返回NvsEffectCoreError_NoError为成功,其他值都是错误,参考错误码定义
+ *  \endif
+ *  \since 3.9.1
+*/
+- (NvsEffectCoreError)calcEffectOutputSize:(NvsEffect *)effect
+                                    inputTexs:(NvsEffectGPUTexture*)inputTextureArray
+                                intputTexCount:(int)texArrayCount
+                      expectVideoResolution:(NvsEffectVideoResolution *)videoResolution
+                                    outputTex:(NvsEffectGPUTextureInfo*)outputTexInfo
+                                    timestamp:(int64_t)timestamp
+                                        flags:(NvsRenderFlag)flags;
+
+/*! \if ENGLISH
+ *  \brief Rendered variable size effects
+ *  \param effect The effect object to be rendered
+ *  \param inputTextures input texture array
+ *  \param texArrayCount input texture array count
+ *  \param outputTex Output texture
+ *  \param timestamp Timestamp of current rendering
+ *  \param flags Temporarily set to 0
+ *  \return "NvsEffectCoreError_NoError" means success, while any other value means failure. Refer to the error code definition.
+ *  \else
+ *  \brief 渲染变画幅特效
+ *  \param effect 要渲染的特效对象
+ *  \param inputTextureArray 输入图像组
+ *  \param texArrayCount 输入纹理的数组数量
+ *  \param outputTex 输出纹理
+ *  \param timestamp 当前渲染的时间戳
+ *  \param flags 暂时为0
+ *  \return 返回NvsEffectCoreError_NoError为成功,其他值都是错误,参考错误码定义
+ *  \endif
+ *  \since 3.9.1
+*/
+- (NvsEffectCoreError)renderVariantSizeEffect:(NvsEffect *)effect
+                                    inputTexs:(NvsEffectGPUTexture*)inputTextureArray
+                                intputTexSize:(int)texArrayCount
+                                    outputTex:(NvsEffectGPUTexture*)outputTex
+                                    timestamp:(int64_t)timestamp
+                                        flags:(NvsRenderFlag)flags;
 
 /*! \if ENGLISH
 *   \brief Clears OpenGL resources cached in special effects.

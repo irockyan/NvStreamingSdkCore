@@ -137,7 +137,7 @@ NVS_EXPORT @interface NvsEffectSdkContext : NSObject
 *   \return The return value indicates whether it is successful
 *   \else
 *   \brief 初始化人体检测机制
-*   \param modelFilePath 人脸模型文件路径
+*   \param modelFilePath 模型文件路径
 *   \param licenseFilePath 授权文件路径
 *   \param features 人体检测特征标志字段。请参见[人体检测特征标志](@ref NvsEffectSdkHumanDetectionFeatureFlag)
 *   \return 返回值表示是否成功
@@ -155,7 +155,7 @@ NVS_EXPORT @interface NvsEffectSdkContext : NSObject
  *  \param features human detection flag field. Please refer to [Flag of human detection](@ref NvsEffectSdkHumanDetectionFeatureFlag).
  *  \else
  *  \brief 初始化人体检测机制
- *  \param modelFilePath 人脸模型文件路径
+ *  \param modelFilePath 模型文件路径
  *  \param licenseFilePath 授权文件路径
  *  \param features 人体检测特征标志字段。请参见[人体检测特征标志](@ref NvsEffectSdkHumanDetectionFeatureFlag)
  *  \endif
