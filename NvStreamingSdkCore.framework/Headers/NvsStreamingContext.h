@@ -25,6 +25,7 @@
 #import "NvsCaptureCaption.h"
 #import "NvsCaptureAudioFx.h"
 #import "NvsCaptureSceneInfo.h"
+#import <CoreMedia/CMSampleBuffer.h>
 
 /*! \if ENGLISH
  *  \brief Streaming context creation flag
@@ -2244,6 +2245,19 @@ NVS_EXPORT @interface NvsStreamingContext : NSObject
  *  \sa startBufferCapturePreview
 */
 - (BOOL)sendBufferToCapturePreview:(const NvsVideoFrameInfo *)data;
+
+/*! \if ENGLISH
+ *  \brief Transfers the input buffer to capture preivew.
+ *  \param data Data and information of the input buffer. Only NV12 format is supported.
+ *  \return Returns BOOL value.
+ *  \else
+ *  \brief 输入buffer给采集设备预览
+ *  \param data 输入buffer的数据和相应信息。
+ *  \return 返回BOOL值。
+ *  \endif
+ *  \sa startBufferCapturePreview
+*/
+- (BOOL)sendAudioSamplesToCapturePreview:(CMSampleBufferRef)data;
 
 /*! \cond */
 - (BOOL)startCapturePreviewForLiveStreaming:(unsigned int)captureDeviceIndex
