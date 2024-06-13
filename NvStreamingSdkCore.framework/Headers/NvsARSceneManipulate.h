@@ -373,6 +373,17 @@ typedef NS_ENUM(NSInteger,NvsToBeCheckedFunctionType) {
 
 /*!
  *  \if ENGLISH
+ *  \brief Set face landmark confidence thresh.
+ *  \param thresh range[0-1], Default is 0.0。
+ *  \else
+ *  \brief 点位置信度阈值
+ *  \param thresh 阈值范围[0,1], 默认值是0.0。
+ *  \endif
+*/
+- (void)setFaceConfidenceThresh:(float)thresh;
+
+/*!
+ *  \if ENGLISH
  *  \brief Set Detection Force Interval.
  *  \param interval, detect intervel.
  *  \else

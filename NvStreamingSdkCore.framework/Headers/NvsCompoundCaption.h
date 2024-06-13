@@ -802,19 +802,6 @@ NVS_EXPORT @interface NvsCompoundCaption : NvsFx
  *  \since 3.7.0
 */
 -(float)getPanoramicRotation;
-
-/*! \if ENGLISH
- *  \brief Determine whether the compound caption is a frame caption.
- *  \param captionIndex caption index。
- *  \return Whether it is a frame caption.
- *  \else
- *  \brief 判断复合子字幕是否是边框字幕.
- *  \param captionIndex 字幕索引。
- *  \return 是否是边框字幕。
- *  \endif
- *  \since 3.10.1
-*/
-- (BOOL)isFrameCaption:(unsigned int)captionIndex;
 /*! \endcond */
 
 

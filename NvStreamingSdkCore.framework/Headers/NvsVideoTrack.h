@@ -228,13 +228,11 @@ NVS_EXPORT @interface NvsVideoTrack : NvsTrack
  *
  *  For the clip's path in IOS, there are four ways:
  *
- *  a. When imported through the ALAssetsLibrary instance, the clip's path format is as follows: "assets-library://asset/asset.mov?id=E0723C86-AA47-409C-B4E2-526D7C2AA9B5&ext=mov";
+ *  a. When imported through the MPMediaQuery instance of the IPod Library, the clip's path format is as follows: "ipod-library://item/item.mp3?id=1217463725835578132";
  *
- *  b. When imported through the MPMediaQuery instance of the IPod Library, the clip's path format is as follows: "ipod-library://item/item.mp3?id=1217463725835578132";
+ *  b. When imported through the sand box path, the clip's path format is as follows: "/var/mobile/Containers/Data/Documents/tmp/video20170406101714.mp4";
  *
- *  c. When imported through the sand box path, the clip's path format is as follows: "/var/mobile/Containers/Data/Documents/tmp/video20170406101714.mp4";
- *
- *  d. After IOS 8.0, the Photos framework replaces the ALAssetsLibrary library, and when imported via the PHAset instance. The clip's path is as follows: "file:///var/mobile/Media/DCIM/100APPLE/IMG_0646.MP4".
+ *  c. Imports via the PHAset instance. The clip's path is as follows: "file:///var/mobile/Media/DCIM/100APPLE/IMG_0646.MP4".
  *  \param inPoint The in point Which the clip is on the timeline (in microseconds)
  *  \return Returns the added NvsVideoClip object.
  *
@@ -246,13 +244,11 @@ NVS_EXPORT @interface NvsVideoTrack : NvsTrack
  *
  *  IOS中，对于导入的音视频片段的路径，有四种方式：
  *
- *  a. 通过ALAssetsLibrary实例导入，片段路径格式如下："assets-library://asset/asset.mov?id=E0723C86-AA47-409C-B4E2-526D7C2AA9B5&ext=mov"；
+ *  a. 通过IPod Library库的MPMediaQuery实例导入，片段路径格式如下："ipod-library://item/item.mp3?id=1217463725835578132"；
  *
- *  b. 通过IPod Library库的MPMediaQuery实例导入，片段路径格式如下："ipod-library://item/item.mp3?id=1217463725835578132"；
+ *  b. 通过沙河路径路径导入，片段路径格式如下："/var/mobile/Containers/Data/Documents/tmp/video20170406101714.mp4"；
  *
- *  c. 通过沙河路径路径导入，片段路径格式如下："/var/mobile/Containers/Data/Documents/tmp/video20170406101714.mp4"；
- *
- *  d. IOS 8.0版以后，Photos框架替代ALAssetsLibrary库，通过PHAsset实例导入，片段路径如下："file:///var/mobile/Media/DCIM/100APPLE/IMG_0646.MP4"。
+ *  c. 通过PHAsset实例导入，片段路径如下："file:///var/mobile/Media/DCIM/100APPLE/IMG_0646.MP4"。
  *  \param inPoint 片段在时间线上的入点（单位微秒）
  *  \return 返回添加的视频片段对象
  *

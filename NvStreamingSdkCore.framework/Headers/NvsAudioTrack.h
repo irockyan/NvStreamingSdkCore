@@ -133,13 +133,11 @@ NVS_EXPORT @interface NvsAudioTrack : NvsTrack
  *
  *  In IOS, there are four ways to import the path of audio and video clips:
  *
- *  a. Imports through the ALAssetsLibrary instance, the file path format is as follows："assets-library://asset/asset.mov?id=E0723C86-AA47-409C-B4E2-526D7C2AA9B5&ext=mov";
+ *  a. Imports through the MPMediaQuery instance of the IPod Library, the file path format is as follows："ipod-library://item/item.mp3?id=1217463725835578132";
  *
- *  b. Imports through the MPMediaQuery instance of the IPod Library, the file path format is as follows："ipod-library://item/item.mp3?id=1217463725835578132";
+ *  b. Imports through the sand box, the file path format is as follows:"/var/mobile/Containers/Data/Documents/tmp/video20170406101714.mp4";
  *
- *  c. Imports through the sand box, the file path format is as follows:"/var/mobile/Containers/Data/Documents/tmp/video20170406101714.mp4";
- *
- *  d. After IOS 8.0, the Photos framework replaces the ALAssetsLibrary library and is imported via the PHAset instance. The file path is as follows:："file:///var/mobile/Media/DCIM/100APPLE/IMG_0646.MP4".
+ *  c. Imports via the PHAset instance. The file path is as follows:："file:///var/mobile/Media/DCIM/100APPLE/IMG_0646.MP4".
  *  \param inPoint The in point of the clip on the timeline (in microseconds)
  *  \return Returns the added NvsAudioClip object.
  *  \warning This interface will cause the streaming engine state to jump to the engine stopping state. For details, please refer to [The Topic of Changing Engine] (\ref EngineChange.md).
@@ -149,13 +147,11 @@ NVS_EXPORT @interface NvsAudioTrack : NvsTrack
  *
  *  IOS中，对于导入的音视频片段的路径，有四种方式：
  *
- *  a. 通过ALAssetsLibrary实例导入，片段路径格式如下："assets-library://asset/asset.mov?id=E0723C86-AA47-409C-B4E2-526D7C2AA9B5&ext=mov"；
+ *  a. 通过IPod Library库的MPMediaQuery实例导入，片段路径格式如下："ipod-library://item/item.mp3?id=1217463725835578132"；
  *
- *  b. 通过IPod Library库的MPMediaQuery实例导入，片段路径格式如下："ipod-library://item/item.mp3?id=1217463725835578132"；
+ *  b. 通过沙河路径路径导入，片段路径格式如下："/var/mobile/Containers/Data/Documents/tmp/video20170406101714.mp4"；
  *
- *  c. 通过沙河路径路径导入，片段路径格式如下："/var/mobile/Containers/Data/Documents/tmp/video20170406101714.mp4"；
- *
- *  d. IOS 8.0版以后，Photos框架替代ALAssetsLibrary库，通过PHAsset实例导入，片段路径如下："file:///var/mobile/Media/DCIM/100APPLE/IMG_0646.MP4"。
+ *  c. 通过PHAsset实例导入，片段路径如下："file:///var/mobile/Media/DCIM/100APPLE/IMG_0646.MP4"。
  *  \param inPoint 片段在时间线上的入点(单位微秒)。inPoint 如果小于0，返回对象为空。
  *  \return 返回添加的音频片段对象
  *  \warning 此接口会引发流媒体引擎状态跳转到引擎停止状态，具体情况请参见[引擎变化专题] (\ref EngineChange.md)。
