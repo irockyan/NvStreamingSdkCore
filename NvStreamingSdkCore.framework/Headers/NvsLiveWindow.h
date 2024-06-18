@@ -12,7 +12,7 @@
 //================================================================================
 #pragma once
 
-#import <GLKit/GLKit.h>
+#import <UIKit/UIKit.h>
 #import "NvsCommonDef.h"
 
 @class NvsLiveWindow;
@@ -46,7 +46,6 @@ NVS_EXPORT @interface NvsLiveWindow : UIView
 - (instancetype)init;
 - (instancetype)initWithFrame:(CGRect)frame;
 - (instancetype)initWithCoder:(NSCoder *)aDecoder;
-- (instancetype)initWithFrame:(CGRect)frame context:(EAGLContext *)context;
 
 /*! \if ENGLISH
  *  \brief Timeline coordinates are converted to view coordinates.

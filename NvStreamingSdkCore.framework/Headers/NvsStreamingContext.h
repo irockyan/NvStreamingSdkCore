@@ -165,7 +165,7 @@ typedef enum
     NvsStreamingEngineCaptureFlag_AutoVideoStabilization = 128,     //!< \if ENGLISH Enables auto video stabilization. \else 启用视频防抖动 \endif \since 1.16.1
     NvsStreamingEngineCaptureFlag_FaceActionWithParticle = 256,     //!< \if ENGLISH Uses facial action to control particle effects. \else 使用脸部动作控制粒子特效 \endif \since 2.1.0
     NvsStreamingEngineCaptureFlag_LowPipelineSize = 512,            //!< \if ENGLISH Decreases the size of pipeline when engine is capturing \else 降低引擎在采集时内部的流水线尺寸 \endif
-    NvsStreamingEngineCaptureFlag_DontAutomaticallyConfiguresApplicationAudioSession = 1024,  //!< \if ENGLISH Does not apply automatically configures application audiosession . \else 不使用自动配置AudioSession \endif \since 2.12.0
+    NvsStreamingEngineCaptureFlag_DontAutomaticallyConfiguresApplicationAudioSession NS_ENUM_DEPRECATED_IOS(8_0, 9_0, "NvsStreamingEngineCaptureFlag_DontConfigAudioSession") = 1024, //!< \if ENGLISH Does not apply automatically configures application audiosession. Note：This option is not available after version 3.11.0. If you need echo cancellation, refer to the setAECEnabled method . \else 不使用自动配置AudioSession.注意：3.11.0版本后此项不可用，如需回声消除参考setAECEnabled方法 \endif \since 2.12.0
     NvsStreamingEngineCaptureFlag_DisableFlipOfFrontCamera = 2048,  //!< \if ENGLISH Disable flip of front camera \else 禁止在前置摄像头上翻转画面 \endif
     NvsStreamingEngineCaptureFlag_InputAspectRatioUsed = 4096,         //!< \if ENGLISH Capture preview size aspect ratio use user input \else 采集预览画面横纵比使用用户输入进行设置，如果Camera不支持当前的横纵比，找到最接近设置 \endif
     NvsStreamingEngineCaptureFlag_EnableTakePicture = 8192,         //!< \if ENGLISH Capture preview size aspect ratio use user input \else 采集预览画面横纵比使用用户输入进行设置，如果Camera不支持当前的横纵比，找到最接近设置 \endif
@@ -3662,6 +3662,31 @@ NVS_EXPORT @interface NvsStreamingContext : NSObject
  *  \endif
 */
 - (BOOL)isBlackFrame:(UIImage *)image;
+
+/*! @if ENGLISH
+ *  @brief Get whether AEC(Acoustic Echo Cancellation) is enabled.
+ *  @return Returns whether AEC(Acoustic Echo Cancellation) is enabled.
+ *  @else
+ *  @brief 获取回声消除是否开启。
+ *  @return 返回回声消除是否开启。
+ *  @endif
+ *  \since 3.11.0
+*/
+- (BOOL)getAECEnabled;
+
+/*! @if ENGLISH
+ *  @brief Set whether to enable AEC(Acoustic Echo Cancellation).Note: Each time you startCapturePreview, this will be set to off, which means that if you want to use echo cancellation, you will need to enable it again after each preview.
+ *  @param whether to enable AEC.
+ *  @return No return value.
+ *  @else
+ *  @brief 设置是否开启回声消除。注意：每次startCapturePreview都会将此设置为关闭状态，也就是说如果要使用回声消除功能每次启动预览后需要再次启用它。
+ *  @param enable 是否开启回声消除。
+ *  @return 无返回值。
+ *  @endif
+ *  @since 3.11.0
+*/
+- (void)setAECEnabled:(BOOL)enable;
+
 @end
 
 /*! \if ENGLISH
