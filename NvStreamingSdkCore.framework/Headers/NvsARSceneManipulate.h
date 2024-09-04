@@ -159,6 +159,35 @@ typedef NS_ENUM(NSInteger,NvsToBeCheckedFunctionType) {
 
 @end
 
+typedef NS_ENUM(NSInteger, NvsHandActionType) {
+    NvsHandActionInvalid = -1,
+    NvsHandActionOK = 0,        //!< \if ENGLISH OK \else OK \endif
+    NvsHandActionScissor,       //!< \if ENGLISH Scissor \else 剪刀手 \endif
+    NvsHandActionGood,          //!< \if ENGLISH Good \else Good \endif
+    NvsHandActionPalm,          //!< \if ENGLISH Palm \else 手掌 \endif
+    NvsHandActionPistol,        //!< \if ENGLISH Pistol \else 手枪 \endif
+    NvsHandActionLove,          //!< \if ENGLISH Love \else 爱心 \endif
+    NvsHandActionHoldup,        //!< \if ENGLISH Hold Up \else 举手 \endif
+    NvsHandActionCongratulate,  //!< \if ENGLISH Congratulate \else 恭喜 \endif
+    NvsHandActionFingerHeart,   //!< \if ENGLISH Finger Heart \else 指心 \endif
+    NvsHandActionFingerIndex,   //!< \if ENGLISH Finger Index \else 食指 \endif
+    NvsHandActionFist,          //!< \if ENGLISH Fist \else 拳头 \endif
+    NvsHandAction666,           //!< \if ENGLISH 666 \else 666 \endif
+    NvsHandActionBless,         //!< \if ENGLISH Bless \else 祝福 \endif
+    NvsHandActionILoveYou,      //!< \if ENGLISH I Love You \else I Love You \endif
+    NvsHandActionSSH,           //!< \if ENGLISH SSH \else 嘘 \endif
+    NvsHandActionThree,         //!< \if ENGLISH Three \else 三 \endif
+    NvsHandActionFour           //!< \if ENGLISH Four \else 四 \endif
+};
+
+@interface NvsHandFeatureInfo : NSObject
+
+@property (nonatomic, assign) int handId;
+@property (nonatomic, assign) NvsRect boundingBox;
+@property (nonatomic, assign) NvsHandActionType actionType;
+
+@end
+
 @protocol NvsARSceneManipulateDelegate <NSObject>
 @optional
 
@@ -191,6 +220,19 @@ typedef NS_ENUM(NSInteger,NvsToBeCheckedFunctionType) {
  *  \since 2.15.0
 */
 - (void)notifyFaceFeatureInfos:(NSMutableArray<NvsFaceFeatureInfo *> *)faceFeatureInfos;
+
+/*! \if ENGLISH
+ *  \brief Get the callback of the hand features for the face.
+ *  <br>Please pay special attention: this function is called in the background thread, not in the UI thread. Please consider thread safety issues!!
+ *  \param handFeatureInfos Array of hand feature info
+ *  \else
+ *  \brief 获取手势特征信息回调
+ *  <br>请特别注意:这个函数被调用是在后台的线程,而不是在UI线程.使用请考虑线程安全的问题!!
+ *  \param handFeatureInfos 手势特征信息数组
+ *  \endif
+ *  \since 3.11.1
+*/
+- (void)notifyHandFeatureInfos:(NSArray<NvsHandFeatureInfo *> *)handFeatureInfos;
 
 /*! \if ENGLISH
  *  \brief Notify if custom avatar realtime resources is preloaded or not.

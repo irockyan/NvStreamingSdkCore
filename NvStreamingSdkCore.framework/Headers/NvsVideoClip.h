@@ -113,6 +113,12 @@ typedef enum NvsClipBlendingMode {
     NvsClipBlendingMode_Difference,         //!< \if ENGLISH Difference mode \else 差值模式 \endif
 } NvsClipBlendingMode;
 
+typedef NS_ENUM(NSInteger, NvsClipRawFilterProcessesMode) {
+    NvsClipRawFilterProcessesModeNone = 0, //!< \if ENGLISH The Raw filter input and output sizes are the same as the resolution of the media file \else Raw滤镜输入输出尺寸都是和媒体文件的分辨率一致 \endif
+    NvsClipRawFilterProcessesModeVarSize, //!< \if ENGLISH Raw filters are processed in varied-size mode and are finally adapted to the timeline size according to FillMode Fill mode \else Raw 滤镜都会按照变尺寸模式进行处理，最后会按照FillMode Fill的模式适配到时间线的尺寸上 \endif
+    NvsClipRawFilterProcessesModeVarSizeWithFillModeUsed //!< \if ENGLISH fit the size of the timeline according to the set fill mode \else 最后会按照设置的填充模式适配到时间线的尺寸 \endif
+};
+
 @class NvsVideoFx;
 
 /*! \if ENGLISH
@@ -147,6 +153,8 @@ NVS_EXPORT @interface NvsVideoClip : NvsClip
 @property (readonly) NvsRect endROI;                                          //!< \if ENGLISH Image clip's ending ROI (Region Of Interesting) \else 图片片段结束ROI \endif \since 1.1.0
 
 @property (readonly) unsigned int audioFxCount;                               //!< \if ENGLISH The count of audio effects on the clip. \else 片段上的特效数量 \endif
+
+@property (nonatomic, assign) NvsClipRawFilterProcessesMode rawFilterProcessesMode; //!< \if ENGLISH raw filter processes mode \else Raw滤镜的处理方式 \endif
 
 /*! \if ENGLISH
  *  \brief Sets whether the clip is reversed.
